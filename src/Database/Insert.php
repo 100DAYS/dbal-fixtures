@@ -38,7 +38,7 @@ class Insert
         foreach ($this->row->values() as $value) {
             if(is_array($value)) {
                 $parameters[] = json_encode($value);
-            } elseif (is_numeric($value) || trim($value, '`') === $value) {
+            } elseif (is_numeric($value) || $value === null | trim($value, '`') === $value) {
                 $parameters[] = $value;
             }
         }
